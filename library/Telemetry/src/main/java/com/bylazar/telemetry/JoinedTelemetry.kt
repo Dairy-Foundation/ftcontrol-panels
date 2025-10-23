@@ -2,7 +2,6 @@ package com.bylazar.telemetry
 
 import org.firstinspires.ftc.robotcore.external.Func
 import org.firstinspires.ftc.robotcore.external.Telemetry
-import java.util.Locale
 
 class JoinedTelemetry(private vararg val delegates: Telemetry) : Telemetry {
 
@@ -12,39 +11,26 @@ class JoinedTelemetry(private vararg val delegates: Telemetry) : Telemetry {
     override fun addData(caption: String?, format: String?, vararg args: Any?): Telemetry.Item? {
         val cap = caption ?: ""
         val fmt = format ?: "%s"
-        val formatted = try {
-            String.format(Locale.getDefault(), fmt, *args)
-        } catch (_: Exception) {
-            listOf(fmt, *args).joinToString(" ")
-        }
-        delegates.forEach { it.addData(cap, formatted) }
+        delegates.forEach { it.addData(cap, fmt, *args) }
         return null
     }
 
     override fun addData(caption: String?, value: Any?): Telemetry.Item? {
         val cap = caption ?: ""
-        val v = value?.toString() ?: "null"
-        delegates.forEach { it.addData(cap, v) }
+        delegates.forEach { it.addData(cap, value) }
         return null
     }
 
     override fun <T : Any?> addData(caption: String?, valueProducer: Func<T?>?): Telemetry.Item? {
         val cap = caption ?: ""
-        val v = valueProducer?.value()?.toString() ?: "null"
-        delegates.forEach { it.addData(cap, v) }
+        delegates.forEach { it.addData(cap, valueProducer) }
         return null
     }
 
     override fun <T : Any?> addData(caption: String?, format: String?, valueProducer: Func<T?>?): Telemetry.Item? {
         val cap = caption ?: ""
         val fmt = format ?: "%s"
-        val produced = valueProducer?.value()
-        val formatted = try {
-            String.format(Locale.getDefault(), fmt, produced)
-        } catch (_: Exception) {
-            "$fmt $produced"
-        }
-        delegates.forEach { it.addData(cap, formatted) }
+        delegates.forEach { it.addData(cap, fmt, valueProducer) }
         return null
     }
 
@@ -53,7 +39,6 @@ class JoinedTelemetry(private vararg val delegates: Telemetry) : Telemetry {
         delegates.forEach { if (it.update()) any = true }
         return any
     }
-
 
     override fun getItemSeparator(): String {
         return delegates.firstOrNull()?.itemSeparator ?: localItemSeparator
@@ -74,7 +59,6 @@ class JoinedTelemetry(private vararg val delegates: Telemetry) : Telemetry {
         localCaptionValueSeparator = sep
         delegates.forEach { it.captionValueSeparator = sep }
     }
-
 
     override fun removeItem(item: Telemetry.Item?) = false
     override fun clear() { delegates.forEach { it.clear() } }

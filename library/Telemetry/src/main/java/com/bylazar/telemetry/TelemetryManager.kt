@@ -6,7 +6,8 @@ import java.util.Locale
 
 class TelemetryManager(
     val config: () -> TelemetryPluginConfig,
-    private val sendLines: (lines: MutableList<String>) -> Unit
+    private val sendLines: (lines: MutableList<String>) -> Unit,
+    private val setInterval: (ms: Long) -> Unit
 ) {
     var lines = mutableListOf<String>()
 
@@ -14,6 +15,11 @@ class TelemetryManager(
 
     val updateInterval: Long
         get() = config().telemetryUpdateInterval
+
+    fun setUpdateInterval(ms: Long) {
+        setInterval(ms)
+    }
+
     var lastUpdate = 0L
     val timeSinceLastUpdate: Long
         get() = System.currentTimeMillis() - lastUpdate
@@ -62,7 +68,11 @@ class TelemetryManager(
         private var itemSeparator: String = ", "
         private var captionValueSeparator: String = ": "
 
-        override fun addData(caption: String?, format: String?, vararg args: Any?): Telemetry.Item? {
+        override fun addData(
+            caption: String?,
+            format: String?,
+            vararg args: Any?
+        ): Telemetry.Item? {
             val cap = caption ?: ""
             val fmt = format ?: "%s"
             val formatted = try {
@@ -80,13 +90,20 @@ class TelemetryManager(
             return null
         }
 
-        override fun <T : Any?> addData(caption: String?, valueProducer: Func<T?>?): Telemetry.Item? {
+        override fun <T : Any?> addData(
+            caption: String?,
+            valueProducer: Func<T?>?
+        ): Telemetry.Item? {
             val cap = caption ?: ""
             this@TelemetryManager.addData(cap, valueProducer?.value()?.toString() ?: "null")
             return null
         }
 
-        override fun <T : Any?> addData(caption: String?, format: String?, valueProducer: Func<T?>?): Telemetry.Item? {
+        override fun <T : Any?> addData(
+            caption: String?,
+            format: String?,
+            valueProducer: Func<T?>?
+        ): Telemetry.Item? {
             val cap = caption ?: ""
             val fmt = format ?: "%s"
             val produced = valueProducer?.value()
@@ -114,16 +131,27 @@ class TelemetryManager(
             this.captionValueSeparator = captionValueSeparator ?: ": "
         }
 
+        override fun addLine(): Telemetry.Line? {
+            this@TelemetryManager.addLine("")
+            return null
+        }
+
+        override fun addLine(lineCaption: String?): Telemetry.Line? {
+            this@TelemetryManager.addLine(lineCaption ?: "")
+            return null
+        }
+
+        override fun setMsTransmissionInterval(msTransmissionInterval: Int) {
+            this@TelemetryManager.setUpdateInterval(msTransmissionInterval.toLong())
+        }
+
         override fun removeItem(item: Telemetry.Item?) = false
         override fun clear() = this@TelemetryManager.lines.clear()
         override fun clearAll() = this@TelemetryManager.lines.clear()
-        override fun addLine(): Telemetry.Line? = null
-        override fun addLine(lineCaption: String?): Telemetry.Line? = null
         override fun removeLine(line: Telemetry.Line?) = false
         override fun isAutoClear() = true
         override fun setAutoClear(autoClear: Boolean) {}
         override fun getMsTransmissionInterval() = updateInterval.toInt()
-        override fun setMsTransmissionInterval(msTransmissionInterval: Int) {}
         override fun setDisplayFormat(displayFormat: Telemetry.DisplayFormat?) {}
         override fun log(): Telemetry.Log? = null
         override fun addAction(action: Runnable?): Any? = null

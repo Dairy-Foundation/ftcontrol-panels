@@ -14,10 +14,13 @@ open class TelemetryPluginConfig : BasePluginConfig() {
 }
 
 object Plugin : Plugin<TelemetryPluginConfig>(TelemetryPluginConfig()) {
-    val manager = TelemetryManager({ config }, { lines -> send("telemetryPacket", lines) })
+    val manager = TelemetryManager(
+        { config },
+        { lines -> send("telemetryPacket", lines) },
+        { ms -> config.telemetryUpdateInterval = ms })
 
     override fun onNewClient(client: Socket.ClientSocket) {
-        if(manager.lastLines.isEmpty()) return
+        if (manager.lastLines.isEmpty()) return
         sendClient(client, "telemetryPacket", manager.lastLines)
     }
 

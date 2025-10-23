@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.telemetry/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:telemetry:<VERSION>",
-  version: "1.0.3",
+  version: "1.0.4",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -27,6 +27,27 @@ export const config: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+    {
+      version: "1.0.4",
+      release_date: "23.10.2025",
+      changes: [
+        {
+          type: "added",
+          description: "Support for addLine",
+          upgrading: "",
+        },
+        {
+          type: "added",
+          description: "Support for setMsTransmissionInterval",
+          upgrading: "",
+        },
+        {
+          type: "fixed",
+          description: "Telemetry fails to process %% formatter",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.3",
       release_date: "9.09.2025",
