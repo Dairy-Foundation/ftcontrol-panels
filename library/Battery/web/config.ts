@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.battery/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:battery:<VERSION>",
-  version: "1.0.2",
+  version: "1.0.3",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -27,6 +27,17 @@ export const config: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+    {
+      version: "1.0.3",
+      release_date: "1.11.2025",
+      changes: [
+        {
+          type: "other",
+          description: "Updated Panels Core to 1.0.4",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.2",
       release_date: "9.09.2025",

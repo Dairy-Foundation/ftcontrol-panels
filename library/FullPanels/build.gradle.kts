@@ -1,5 +1,5 @@
 val pluginNamespace = "com.bylazar.fullpanels"
-val pluginVersion = "1.0.8"
+val pluginVersion = "1.0.9"
 
 plugins {
     id("com.android.library")
@@ -68,6 +68,7 @@ dependencies {
     api(project(":Pinger"))
     api(project(":Graph"))
     api(project(":Lights"))
+    api(project(":CameraStream"))
 }
 
 afterEvaluate {

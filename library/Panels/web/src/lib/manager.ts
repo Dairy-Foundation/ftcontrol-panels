@@ -13,7 +13,7 @@ export const panelsConfig: PluginConfig = {
   websiteURL: "https://panels.bylazar.com",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:panels:<VERSION>",
-  version: "1.0.3",
+  version: "1.0.4",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "",
@@ -21,6 +21,18 @@ export const panelsConfig: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+    {
+      version: "1.0.4",
+      release_date: "1.11.2025",
+      changes: [
+        {
+          type: "added",
+          description:
+            "Method to get connected clients count (used by CameraStream Plugin)",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.3",
       release_date: "9.09.2025",

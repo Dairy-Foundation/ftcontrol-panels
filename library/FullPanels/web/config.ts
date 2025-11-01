@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.fullpanels/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:fullpanels:<VERSION>",
-  version: "1.0.8",
+  version: "1.0.9",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -100,8 +100,25 @@ export const config: PluginConfig = {
     "com.bylazar.pinger",
     "com.bylazar.graph",
     "com.bylazar.lights",
+    "com.bylazar.camerastream",
   ],
   changelog: [
+    {
+      version: "1.0.9",
+      release_date: "1.11.2025",
+      changes: [
+        {
+          type: "added",
+          description: "Added Camera Stream Plugin",
+          upgrading: "",
+        },
+        {
+          type: "other",
+          description: "Updated all other plugins",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.8",
       release_date: "23.10.2025",

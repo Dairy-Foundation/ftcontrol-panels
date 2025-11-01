@@ -44,5 +44,4 @@ dependencies {
     implementation project(':FtcRobotController')
     implementation project(':FullPanels')
     implementation project(':ExamplePlugin')
-    implementation project(':CameraStream')
 }
