@@ -106,6 +106,17 @@
         </p>
       </div>
     </div>
+
+    <div class="flex">
+      <img src="/combined/camerastream.png" alt="Camera Stream plugin" />
+      <div>
+        <h3>Camera Stream</h3>
+        <p>
+          An optimized streaming solution for FTC webcams, inspired by the
+          Limelight Stream Widget.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 

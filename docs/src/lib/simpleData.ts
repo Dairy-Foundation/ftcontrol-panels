@@ -10,7 +10,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.battery/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:battery:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -29,6 +29,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -54,6 +65,46 @@ export const simpleModules: PluginConfig[] = [
     ]
   },
   {
+    "id": "com.bylazar.camerastream",
+    "name": "Camera Stream",
+    "letterName": "CS",
+    "description": "Webcam stream utils for Panels",
+    "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.camerastream/",
+    "mavenURL": "https://mymaven.bylazar.com/releases",
+    "packageString": "com.bylazar:camerastream:<VERSION>",
+    "version": "1.0.0",
+    "pluginsCoreVersion": "1.1.43",
+    "author": "Lazar",
+    "manager": "src/manager.ts",
+    "components": [
+      {
+        "type": "widget",
+        "id": "Camera Stream",
+        "filepath": "src/navlets/CameraStream.svelte"
+      },
+      {
+        "type": "docs",
+        "id": "Homepage",
+        "filepath": "src/docs/Homepage.svelte"
+      }
+    ],
+    "templates": [],
+    "includedPluginsIDs": [],
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "release_date": "1.11.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "First release",
+            "upgrading": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "com.bylazar.capture",
     "name": "Capture",
     "letterName": "C",
@@ -61,7 +112,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.capture/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:capture:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -80,6 +131,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -112,7 +174,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.configurables/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:configurables:<VERSION>",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "components": [
@@ -136,6 +198,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.3",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.2",
         "release_date": "31.08.2025",
@@ -179,7 +252,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.docs/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:docs:<VERSION>",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -208,6 +281,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.4",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.3",
         "release_date": "27.08.2025",
@@ -272,7 +356,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.field/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:field:<VERSION>",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -291,6 +375,22 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.3",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          },
+          {
+            "type": "added",
+            "description": "Added Decode Field Images",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.2",
         "release_date": "27.08.2025",
@@ -334,7 +434,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.fullpanels/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:fullpanels:<VERSION>",
-    "version": "1.0.5",
+    "version": "1.0.8",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -449,6 +549,39 @@ export const simpleModules: PluginConfig[] = [
     ],
     "changelog": [
       {
+        "version": "1.0.8",
+        "release_date": "23.10.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated Telemetry Plugin to 1.0.4",
+            "upgrading": ""
+          }
+        ]
+      },
+      {
+        "version": "1.0.7",
+        "release_date": "8.10.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated Graph Plugin to 1.0.3",
+            "upgrading": ""
+          }
+        ]
+      },
+      {
+        "version": "1.0.6",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0 & Decode Field Images",
+            "upgrading": ""
+          }
+        ]
+      },
+      {
         "version": "1.0.5",
         "release_date": "04.09.2025",
         "changes": [
@@ -539,7 +672,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.gamepad/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:gamepad:<VERSION>",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -568,6 +701,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.3",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.2",
         "release_date": "31.08.2025",
@@ -611,7 +755,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.graph",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:graph:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -630,6 +774,33 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.3",
+        "release_date": "8.10.2025",
+        "changes": [
+          {
+            "type": "changed",
+            "description": "Graph Rewrite",
+            "upgrading": ""
+          },
+          {
+            "type": "deprecated",
+            "description": "Removed GraphManager",
+            "upgrading": "Change your code to only use Telemetry for printing graph variables."
+          }
+        ]
+      },
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -667,7 +838,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.lights/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:lights:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -686,6 +857,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -718,7 +900,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.limelightproxy/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:limelightproxy:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -753,6 +935,17 @@ export const simpleModules: PluginConfig[] = [
     "includedPluginsIDs": [],
     "changelog": [
       {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
+      {
         "version": "1.0.1",
         "release_date": "27.08.2025",
         "changes": [
@@ -784,7 +977,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.opmodecontrol/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:opmodecontrol:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -808,6 +1001,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -840,7 +1044,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.pinger/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:pinger:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -859,6 +1063,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -891,7 +1106,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.telemetry/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:telemetry:<VERSION>",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -910,6 +1125,38 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.4",
+        "release_date": "23.10.2025",
+        "changes": [
+          {
+            "type": "added",
+            "description": "Support for addLine",
+            "upgrading": ""
+          },
+          {
+            "type": "added",
+            "description": "Support for setMsTransmissionInterval",
+            "upgrading": ""
+          },
+          {
+            "type": "fixed",
+            "description": "Telemetry fails to process %% formatter",
+            "upgrading": ""
+          }
+        ]
+      },
+      {
+        "version": "1.0.3",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.2",
         "release_date": "04.09.2025",
@@ -953,7 +1200,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.themes/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:themes:<VERSION>",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -977,6 +1224,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.2",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.1",
         "release_date": "27.08.2025",
@@ -1009,7 +1267,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com/docs/com.bylazar.utils/",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:utils:<VERSION>",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "src/manager.ts",
@@ -1023,6 +1281,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.3",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.2",
         "release_date": "31.08.2025",
@@ -1066,7 +1335,7 @@ export const simpleModules: PluginConfig[] = [
     "websiteURL": "https://panels.bylazar.com",
     "mavenURL": "https://mymaven.bylazar.com/releases",
     "packageString": "com.bylazar:panels:<VERSION>",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "pluginsCoreVersion": "1.1.43",
     "author": "Lazar",
     "manager": "",
@@ -1074,6 +1343,17 @@ export const simpleModules: PluginConfig[] = [
     "templates": [],
     "includedPluginsIDs": [],
     "changelog": [
+      {
+        "version": "1.0.3",
+        "release_date": "9.09.2025",
+        "changes": [
+          {
+            "type": "other",
+            "description": "Updated SDK to 11.0.0",
+            "upgrading": ""
+          }
+        ]
+      },
       {
         "version": "1.0.2",
         "release_date": "27.08.2025",

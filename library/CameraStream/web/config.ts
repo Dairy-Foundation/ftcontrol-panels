@@ -15,7 +15,7 @@ export const config: PluginConfig = {
   components: [
     {
       type: "widget",
-      id: "CameraStream",
+      id: "Camera Stream",
       filepath: "src/navlets/CameraStream.svelte",
     },
     {
