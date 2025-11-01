@@ -42,6 +42,9 @@ object Panels : Notifications {
         OpModeHandler.registerOpMode()
     }
 
+    val clientsCount: Int
+        get() = socket.clients.size
+
     internal fun initPanels(context: Context, eventLoop: FtcEventLoop) {
         TaskTimer.measure("full init") {
             wasStarted = false

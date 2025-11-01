@@ -1,0 +1,42 @@
+import type { PluginConfig } from "ftc-panels"
+
+export const config: PluginConfig = {
+  id: "com.bylazar.camerastream",
+  name: "Camera Stream",
+  letterName: "CS",
+  description: "Webcam stream utils for Panels",
+  websiteURL: "https://panels.bylazar.com/docs/com.bylazar.camerastream/",
+  mavenURL: "https://mymaven.bylazar.com/releases",
+  packageString: "com.bylazar:camerastream:<VERSION>",
+  version: "1.0.0",
+  pluginsCoreVersion: "1.1.43",
+  author: "Lazar",
+  manager: "src/manager.ts",
+  components: [
+    {
+      type: "navlet",
+      id: "Battery",
+      filepath: "src/navlets/Battery.svelte",
+    },
+    {
+      type: "docs",
+      id: "Homepage",
+      filepath: "src/docs/Homepage.svelte",
+    },
+  ],
+  templates: [],
+  includedPluginsIDs: [],
+  changelog: [
+    {
+      version: "1.0.0",
+      release_date: "1.11.2025",
+      changes: [
+        {
+          type: "other",
+          description: "First release",
+          upgrading: "",
+        },
+      ],
+    },
+  ],
+}

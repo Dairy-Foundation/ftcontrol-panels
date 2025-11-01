@@ -37,7 +37,7 @@ class Socket(
         return ClientSocket(handshake)
     }
 
-    private val clients: MutableSet<ClientSocket> = mutableSetOf()
+    val clients: MutableSet<ClientSocket> = mutableSetOf()
 
     fun sendStrings(data: String) {
         try {

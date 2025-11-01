@@ -24,7 +24,8 @@ val modules = listOf(
     "Utils",
     "Pinger",
     "Graph",
-    "Lights"
+    "Lights",
+    "CameraStream"
 )
 
 modules.forEach { name ->
