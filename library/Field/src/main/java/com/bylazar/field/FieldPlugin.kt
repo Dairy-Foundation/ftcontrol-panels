@@ -10,8 +10,12 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManagerImpl
 
 open class FieldPluginConfig : BasePluginConfig() {
+    @Transient
     open var canvasUpdateInterval = 100L
+    @Transient
     open var defaultBg: ImagePreset = PanelsField.images.DECODE.DARK
+    @Transient
+    open var extraPresets: List<FieldPresetParams> = listOf()
 }
 
 object Plugin : Plugin<FieldPluginConfig>(FieldPluginConfig()) {
@@ -21,7 +25,9 @@ object Plugin : Plugin<FieldPluginConfig>(FieldPluginConfig()) {
         sendClient(client, "canvasPacket", manager.lastCanvas)
         if (manager.images.isNotEmpty()) sendClient(client, "canvasImages", manager.images)
 
-        sendClient(client, "canvasPresets", FieldPresets.allPresets)
+        val combinedPresets = FieldPresets.allPresets + config.extraPresets
+
+        sendClient(client, "canvasPresets", combinedPresets)
 
         log("Images length: ${manager.images.keys.size}")
     }

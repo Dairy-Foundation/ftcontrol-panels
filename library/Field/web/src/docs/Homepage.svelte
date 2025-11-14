@@ -9,6 +9,7 @@
 
   import drawBezier from "@examples/field/BezierFollower.kt?raw"
   import drawing from "@examples/field/Drawing.kt?raw"
+  import field from "@examples/field/CustomPresets.kt?raw"
   import video from "./video.mp4"
 </script>
 
@@ -23,6 +24,10 @@
 <Paragraph>An example class for drawing.</Paragraph>
 
 <CodeBlock language={"kotlin"} code={drawing} />
+
+<Paragraph>An example config for custom Field presets.</Paragraph>
+
+<CodeBlock language={"kotlin"} code={field} />
 
 <Title level={1}>Example Bezier Drawing</Title>
 <Paragraph>The OpMode used for the example clip</Paragraph>

@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.field/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:field:<VERSION>",
-  version: "1.0.4",
+  version: "1.0.5",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -27,6 +27,17 @@ export const config: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+     {
+      version: "1.0.5",
+      release_date: "14.11.2025",
+      changes: [
+        {
+          type: "added",
+          description: "Custom Presets can be shown in widget & minor bug fixes",
+          upgrading: "",
+        }
+      ]
+    },
     {
       version: "1.0.4",
       release_date: "1.11.2025",

@@ -1,12 +1,12 @@
 import { PluginManager, getLazarPackageLatestVersion } from "ftc-panels"
-import { config } from "../config"
+import { config } from "../config.js"
 
 import {
   emptyPacket,
   emptyPreset,
   type FieldPresetParams,
   type Packet,
-} from "./types"
+} from "./types.js"
 
 type ImagesMap = Record<string, string>
 
