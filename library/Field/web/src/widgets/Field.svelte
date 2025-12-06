@@ -46,8 +46,8 @@
     const contentWidth = rect.width - bl - br
     const contentHeight = rect.height - bt - bb
 
-    const cx = (ev.clientX - contentLeft) * (canvas.width / contentWidth)
-    const cy = (ev.clientY - contentTop) * (canvas.height / contentHeight)
+    const cx = (ev.clientX - contentLeft) * (FIELD_WIDTH.pixels / contentWidth)
+    const cy = (ev.clientY - contentTop) * (FIELD_HEIGHT.pixels / contentHeight)
 
     const W = FIELD_WIDTH.pixels
     const H = FIELD_HEIGHT.pixels
@@ -202,7 +202,7 @@
         heading:
         <b
           >{Math.round(
-            (rotationToRadians(packet.preset.rotation) * 180) / Math.PI
+            (rotationToRadians(packet.preset.rotation) * 180) / Math.PI,
           ) % 360}°</b
         >
       </div>
