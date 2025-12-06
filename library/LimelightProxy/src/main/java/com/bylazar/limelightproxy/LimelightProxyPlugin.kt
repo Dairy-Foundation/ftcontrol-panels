@@ -54,6 +54,10 @@ object Plugin : Plugin<LimelightProxyConfig>(LimelightProxyConfig()) {
         panelsInstance: Panels,
         context: Context
     ) {
+        if (::limelightProxy.isInitialized) {
+            isProxied = false
+        }
+
         if (isDev) {
             limelightProxy = GenericProxy(5801, 3331, "localhost")
             limelightFeedProxy = GenericStreamingProxy(5800, 3331, "localhost")
