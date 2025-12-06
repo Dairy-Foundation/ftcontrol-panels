@@ -21,10 +21,6 @@
           const incomingArray = data[key]
           const existingArray = configurables[key] || []
 
-          console.log(
-            `Configurables update for ${key}:`,
-            incomingArray.map((i) => i.fieldName),
-          )
           newConfigurables[key] = incomingArray.map((incomingItem, index) => {
             const existingItem = existingArray.find(
               (it) => it.id === incomingItem.id,
