@@ -28,6 +28,7 @@
   import javaClass from "@examples/configurables/TestJavaClass.java?raw"
   import kotlinClass from "@examples/configurables/TestKotlinClass.kt?raw"
   import kotlinObject from "@examples/configurables/TestKotlinObject.kt?raw"
+  import sortedConfigurables from "@examples/configurables/SortedConfigurables.java?raw"
 </script>
 
 <Title level={1}>{info.name}</Title>
@@ -57,6 +58,15 @@
   <ListItem>Behavioral toggles (e.g., enabling/disabling subsystems)</ListItem>
   <ListItem>Testing new constants on-the-fly</ListItem>
 </UnorderedList>
+
+<Title level={2}>Sorting Configurables</Title>
+<Paragraph>
+  By default, fields are loaded in an undefined order (usually how they are
+  declared in the bytecode). To enforce a specific order, use the
+  <InlineCode>@Sorter(order)</InlineCode> annotation on your fields. Lower numbers
+  come first.
+</Paragraph>
+<CodeBlock language={"java"} code={sortedConfigurables}></CodeBlock>
 
 <Title level={2}>Annotating Classes with @Configurable</Title>
 

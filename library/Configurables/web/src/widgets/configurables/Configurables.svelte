@@ -21,12 +21,18 @@
           const incomingArray = data[key]
           const existingArray = configurables[key] || []
 
+          console.log(
+            `Configurables update for ${key}:`,
+            incomingArray.map((i) => i.fieldName),
+          )
           newConfigurables[key] = incomingArray.map((incomingItem, index) => {
-            const existingItem = existingArray[index]
+            const existingItem = existingArray.find(
+              (it) => it.id === incomingItem.id,
+            )
 
             const extendItem = (
               item: GenericTypeJson,
-              existing?: ExtendedType
+              existing?: ExtendedType,
             ): ExtendedType => {
               return {
                 ...item,
@@ -35,7 +41,10 @@
                 valueString: item.value,
                 newValueString: existing?.value ?? item.value,
                 customValues: item.customValues?.map((subItem, subIndex) =>
-                  extendItem(subItem, existing?.customValues?.[subIndex])
+                  extendItem(
+                    subItem,
+                    existing?.customValues?.find((it) => it.id === subItem.id),
+                  ),
                 ),
               }
             }
@@ -45,7 +54,7 @@
         }
 
         configurables = newConfigurables
-      }
+      },
     )
   })
 
@@ -57,7 +66,7 @@
     for (const [key, items] of Object.entries(configurables)) {
       const filtered = items
         .filter(
-          (item) => item.isValid && item.valueString !== item.newValueString
+          (item) => item.isValid && item.valueString !== item.newValueString,
         )
         .map((it) => {
           return {

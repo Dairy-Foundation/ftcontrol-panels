@@ -149,7 +149,13 @@ object Plugin : Plugin<ConfigurablesPluginConfig>(ConfigurablesPluginConfig()) {
         clazz: Class<*>,
         originalClassName: String
     ) {
-        val fields = clazz.declaredFields
+        log("Sorting fields for class ${clazz.simpleName}")
+        val fields = clazz.declaredFields.sortedBy { field ->
+            val sort = field.getAnnotation(com.bylazar.configurables.annotations.Sorter::class.java)?.sort
+            log("Field ${field.name} has sort value: $sort")
+            sort ?: Int.MAX_VALUE
+        }
+        log("Order after sorting: ${fields.map { it.name }}")
         fields.forEach { field ->
             try {
                 val isFinal = Modifier.isFinal(field.modifiers)

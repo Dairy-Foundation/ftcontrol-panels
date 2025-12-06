@@ -57,7 +57,9 @@ fun processValue(
 
         if (type == BaseTypes.CUSTOM) {
             reference.isAccessible = true
-            val customValues = reference.type.declaredFields.mapNotNull { field ->
+            val customValues = reference.type.declaredFields.sortedBy { field ->
+                field.getAnnotation(com.bylazar.configurables.annotations.Sorter::class.java)?.sort ?: Int.MAX_VALUE
+            }.mapNotNull { field ->
                 try {
                     field.isAccessible = true
                     if (field.isAnnotationPresent(IgnoreConfigurable::class.java)) return@mapNotNull null

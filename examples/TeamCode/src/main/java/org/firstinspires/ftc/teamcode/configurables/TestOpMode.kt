@@ -23,6 +23,9 @@ class TestOpMode: OpMode() {
         }
 
         @JvmField
+        var PIDConstants = SortedConfigurables()
+
+        @JvmField
         var testEnum: States = States.TEST1
 
         @JvmField
