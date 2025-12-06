@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.field/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:field:<VERSION>",
-  version: "1.0.5",
+  version: "1.0.6",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -27,6 +27,17 @@ export const config: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+    {
+      version: "1.0.6",
+      release_date: "6.12.2025",
+      changes: [
+        {
+          type: "fixed",
+          description: "Resolved issue with field and OS zoom level",
+          upgrading: "",
+        },
+      ],
+    },
      {
       version: "1.0.5",
       release_date: "14.11.2025",

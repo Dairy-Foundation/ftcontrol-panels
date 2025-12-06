@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.fullpanels/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:fullpanels:<VERSION>",
-  version: "1.0.10",
+  version: "1.0.11",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -103,6 +103,17 @@ export const config: PluginConfig = {
     "com.bylazar.camerastream",
   ],
   changelog: [
+    {
+      version: "1.0.11",
+      release_date: "6.12.2025",
+      changes: [
+        {
+          type: "other",
+          description: "Updated Field to 1.0.6, Limelight Proxy to 1.0.4, and Configurables to 1.0.5",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.10",
       release_date: "14.11.2025",

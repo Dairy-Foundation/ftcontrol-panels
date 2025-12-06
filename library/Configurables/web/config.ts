@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.configurables/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:configurables:<VERSION>",
-  version: "1.0.4",
+  version: "1.0.5",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   components: [
@@ -32,6 +32,17 @@ export const config: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+    {
+      version: "1.0.5",
+      release_date: "6.12.2025",
+      changes: [
+        {
+          type: "added",
+          description: "Added sorter annotation",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.4",
       release_date: "1.11.2025",
