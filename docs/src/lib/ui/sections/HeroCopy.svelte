@@ -4,7 +4,11 @@
 </script>
 
 <Panels />
-<h2>An intuitive, real-time<br />dashboard for your FTC Robot.</h2>
+<h2>
+  An intuitive, real-time
+  <br />
+  dashboard for your FTC Robot.
+</h2>
 
 <div class="actions">
   <a class="button primary" href="/docs/com.bylazar.docs">Read the docs</a>
@@ -18,7 +22,7 @@
   </a>
 </div>
 
-<p class="version">v1.0.11</p>
+<p class="version">v1.0.12</p>
 
 <style>
   h2 {

@@ -13,7 +13,7 @@ export const panelsConfig: PluginConfig = {
   websiteURL: "https://panels.bylazar.com",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:panels:<VERSION>",
-  version: "1.0.4",
+  version: "1.0.5",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "",
@@ -21,6 +21,17 @@ export const panelsConfig: PluginConfig = {
   templates: [],
   includedPluginsIDs: [],
   changelog: [
+    {
+      version: "1.0.5",
+      release_date: "12.12.2025",
+      changes: [
+        {
+          type: "other",
+          description: "Reduced logs amount",
+          upgrading: "",
+        },
+      ],
+    },
     {
       version: "1.0.4",
       release_date: "1.11.2025",

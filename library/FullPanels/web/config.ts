@@ -8,7 +8,7 @@ export const config: PluginConfig = {
   websiteURL: "https://panels.bylazar.com/docs/com.bylazar.fullpanels/",
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:fullpanels:<VERSION>",
-  version: "1.0.11",
+  version: "1.0.12",
   pluginsCoreVersion: "1.1.43",
   author: "Lazar",
   manager: "src/manager.ts",
@@ -104,12 +104,24 @@ export const config: PluginConfig = {
   ],
   changelog: [
     {
+      version: "1.0.12",
+      release_date: "12.12.2025",
+      changes: [
+        {
+          type: "other",
+          description: "Reduced Panels logs amount",
+          upgrading: "",
+        },
+      ],
+    },
+    {
       version: "1.0.11",
       release_date: "6.12.2025",
       changes: [
         {
           type: "other",
-          description: "Updated Field to 1.0.6, Limelight Proxy to 1.0.4, and Configurables to 1.0.5",
+          description:
+            "Updated Field to 1.0.6, Limelight Proxy to 1.0.4, and Configurables to 1.0.5",
           upgrading: "",
         },
       ],
@@ -122,8 +134,8 @@ export const config: PluginConfig = {
           type: "other",
           description: "Updated Field Plugin to 1.0.5",
           upgrading: "",
-        }
-      ]
+        },
+      ],
     },
     {
       version: "1.0.9",

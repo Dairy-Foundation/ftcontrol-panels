@@ -1,5 +1,5 @@
 val pluginNamespace = "com.bylazar.fullpanels"
-val pluginVersion = "1.0.11"
+val pluginVersion = "1.0.12"
 
 plugins {
     id("com.android.library")
