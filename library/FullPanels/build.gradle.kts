@@ -42,6 +42,10 @@ android {
     }
 }
 
+repositories {
+    maven("https://repo.dairy.foundation/releases")
+}
+
 dependencies {
     compileOnly("org.firstinspires.ftc:Inspection:11.0.0")
     compileOnly("org.firstinspires.ftc:Blocks:11.0.0")

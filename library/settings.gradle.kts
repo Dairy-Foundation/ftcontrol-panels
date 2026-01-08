@@ -2,6 +2,7 @@ pluginManagement {
     includeBuild("plugin-svelte-assets")
     repositories {
         gradlePluginPortal()
+        maven("https://repo.dairy.foundation/releases")
     }
 }
 

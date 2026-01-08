@@ -4,8 +4,9 @@ val pluginVersion = "1.0.3"
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("maven-publish")
     id("com.bylazar.svelte-assets")
+    id("dev.frozenmilk.publish") version "0.0.5"
+    id("dev.frozenmilk.doc") version "0.0.5"
 }
 
 svelteAssets {
@@ -42,6 +43,14 @@ android {
     }
 }
 
+dairyPublishing {
+    gitDir = file("..")
+}
+
+repositories {
+    maven("https://repo.dairy.foundation/releases")
+}
+
 dependencies {
     compileOnly("org.firstinspires.ftc:Inspection:11.0.0")
     compileOnly("org.firstinspires.ftc:Blocks:11.0.0")
@@ -52,6 +61,8 @@ dependencies {
     compileOnly("org.firstinspires.ftc:FtcCommon:11.0.0")
     compileOnly("org.firstinspires.ftc:Vision:11.0.0")
 
+    implementation("dev.frozenmilk.sinister:Sloth:0.2.4")
+
     compileOnly(project(":Panels"))
 }
 
@@ -61,9 +72,11 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                groupId = pluginNamespace.substringBeforeLast('.')
+                groupId = pluginNamespace.substringBeforeLast('.') + ".sloth"
                 artifactId = pluginNamespace.substringAfterLast('.')
-                version = pluginVersion
+
+                artifact(dairyDoc.dokkaHtmlJar)
+                artifact(dairyDoc.dokkaJavadocJar)
 
                 pom {
                     description.set("Panels OpModeControl Plugin")
@@ -78,13 +91,6 @@ afterEvaluate {
                         }
                     }
                 }
-            }
-        }
-
-        repositories {
-            maven {
-                name = "localDevRepo"
-                url = uri("file:///C:/Users/lazar/Documents/GitHub/ftcontrol-maven/releases")
             }
         }
     }
