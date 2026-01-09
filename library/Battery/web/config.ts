@@ -9,7 +9,7 @@ export const config: PluginConfig = {
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:battery:<VERSION>",
   version: "1.0.3",
-  pluginsCoreVersion: "1.1.43",
+  pluginsCoreVersion: "1.1.44",
   author: "Lazar",
   manager: "src/manager.ts",
   components: [
@@ -55,7 +55,7 @@ export const config: PluginConfig = {
       changes: [
         {
           type: "other",
-          description: "Updated ftc-panels to 1.1.43",
+          description: "Updated ftc-panels to 1.1.44",
           upgrading: "",
         },
       ],

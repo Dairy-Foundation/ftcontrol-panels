@@ -9,7 +9,7 @@ export const config: PluginConfig = {
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:camerastream:<VERSION>",
   version: "1.0.0",
-  pluginsCoreVersion: "1.1.43",
+  pluginsCoreVersion: "1.1.44",
   author: "Lazar",
   manager: "src/manager.ts",
   components: [
