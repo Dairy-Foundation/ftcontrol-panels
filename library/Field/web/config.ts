@@ -9,7 +9,7 @@ export const config: PluginConfig = {
   mavenURL: "https://mymaven.bylazar.com/releases",
   packageString: "com.bylazar:field:<VERSION>",
   version: "1.0.6",
-  pluginsCoreVersion: "1.1.43",
+  pluginsCoreVersion: "1.1.44",
   author: "Lazar",
   manager: "src/manager.ts",
   components: [
@@ -38,16 +38,17 @@ export const config: PluginConfig = {
         },
       ],
     },
-     {
+    {
       version: "1.0.5",
       release_date: "14.11.2025",
       changes: [
         {
           type: "added",
-          description: "Custom Presets can be shown in widget & minor bug fixes",
+          description:
+            "Custom Presets can be shown in widget & minor bug fixes",
           upgrading: "",
-        }
-      ]
+        },
+      ],
     },
     {
       version: "1.0.4",
@@ -82,7 +83,7 @@ export const config: PluginConfig = {
       changes: [
         {
           type: "other",
-          description: "Updated ftc-panels to 1.1.43",
+          description: "Updated ftc-panels to 1.1.44",
           upgrading: "",
         },
       ],
