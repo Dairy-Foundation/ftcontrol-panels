@@ -1,3 +1,6 @@
+val pluginNamespace = "com.bylazar.panels"
+val pluginVersion = "1.0.5"
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -5,13 +8,9 @@ plugins {
     id("com.bylazar.svelte-assets")
 }
 
-val pluginNamespace = "com.bylazar.panels"
-val pluginVersion = "1.0.5"
-
 svelteAssets {
-    webAppPath = "web"
-    buildDirPath = "build"
     assetsPath = "web"
+    buildDirPath = "build"
 }
 
 android {

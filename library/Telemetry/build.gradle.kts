@@ -9,9 +9,7 @@ plugins {
 }
 
 svelteAssets {
-    webAppPath = "web"
-    buildDirPath = "dist"
-    assetsPath = "web/plugins/$pluginNamespace"
+    assetsPath = assetPathForPlugin(pluginNamespace)
 }
 
 android {

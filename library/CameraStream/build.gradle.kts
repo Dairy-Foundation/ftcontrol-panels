@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.implementation
-
 val pluginNamespace = "com.bylazar.camerastream"
 val pluginVersion = "1.0.0"
 
@@ -11,9 +9,7 @@ plugins {
 }
 
 svelteAssets {
-    webAppPath = "web"
-    buildDirPath = "dist"
-    assetsPath = "web/plugins/$pluginNamespace"
+    assetsPath = assetPathForPlugin(pluginNamespace)
 }
 
 android {
