@@ -4,13 +4,31 @@ val pluginVersion = "1.0.5"
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("maven-publish")
     id("com.bylazar.svelte-assets")
+    id("dev.frozenmilk.publish") version "0.0.5"
+    id("dev.frozenmilk.doc") version "0.0.5"
+    id("dev.frozenmilk.build-meta-data") version "0.0.2"
 }
 
 svelteAssets {
     assetsPath = "web"
     buildDirPath = "build"
+}
+
+dairyPublishing {
+    gitDir = file("..")
+}
+
+version = "${dairyPublishing.version}+$pluginVersion"
+
+meta {
+    packagePath = pluginNamespace
+    name = "Panels"
+    registerField("name", "String", "\"$pluginNamespace\"")
+    registerField("clean", "Boolean") { "${dairyPublishing.clean}" }
+    registerField("gitRef", "String") { "\"${dairyPublishing.gitRef}\"" }
+    registerField("snapshot", "Boolean") { "${dairyPublishing.snapshot}" }
+    registerField("version", "String") { "\"$version\"" }
 }
 
 android {
@@ -80,9 +98,11 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                groupId = pluginNamespace.substringBeforeLast('.')
+                groupId = pluginNamespace.substringBeforeLast('.') + ".sloth"
                 artifactId = pluginNamespace.substringAfterLast('.')
-                version = pluginVersion
+
+                artifact(dairyDoc.dokkaJavadocJar)
+                artifact(dairyDoc.dokkaHtmlJar)
 
                 pom {
                     description.set("All in one toolbox dashboard for FTC.")
@@ -97,13 +117,6 @@ afterEvaluate {
                         }
                     }
                 }
-            }
-        }
-
-        repositories {
-            maven {
-                name = "localDevRepo"
-                url = uri("file:///C:/Users/lazar/Documents/GitHub/ftcontrol-maven/releases")
             }
         }
     }

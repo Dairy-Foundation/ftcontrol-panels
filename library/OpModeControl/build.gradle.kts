@@ -7,10 +7,27 @@ plugins {
     id("com.bylazar.svelte-assets")
     id("dev.frozenmilk.publish") version "0.0.5"
     id("dev.frozenmilk.doc") version "0.0.5"
+    id("dev.frozenmilk.build-meta-data") version "0.0.2"
 }
 
 svelteAssets {
     assetsPath = assetPathForPlugin(pluginNamespace)
+}
+
+dairyPublishing {
+    gitDir = file("..")
+}
+
+version = "${dairyPublishing.version}+$pluginVersion"
+
+meta {
+    packagePath = pluginNamespace
+    name = "OpModeControl"
+    registerField("name", "String", "\"$pluginNamespace\"")
+    registerField("clean", "Boolean") { "${dairyPublishing.clean}" }
+    registerField("gitRef", "String") { "\"${dairyPublishing.gitRef}\"" }
+    registerField("snapshot", "Boolean") { "${dairyPublishing.snapshot}" }
+    registerField("version", "String") { "\"${dairyPublishing.version}\"" }
 }
 
 android {
@@ -39,10 +56,6 @@ android {
     publishing {
         singleVariant("release") {}
     }
-}
-
-dairyPublishing {
-    gitDir = file("..")
 }
 
 repositories {
