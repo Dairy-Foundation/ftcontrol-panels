@@ -38,6 +38,9 @@ android {
 }
 
 repositories {
+    maven {
+        url "https://repo.dairy.foundation/releases"
+    }
 }
 
 dependencies {
