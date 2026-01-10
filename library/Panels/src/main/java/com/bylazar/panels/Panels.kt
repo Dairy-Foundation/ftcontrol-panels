@@ -77,7 +77,7 @@ object Panels : Notifications {
                 server = StaticServer(context, 8001, "web")
                 socket = Socket(8002)
             } catch (e: Exception) {
-                Logger.coreLog("Failed to start webserver: " + e.message)
+                Logger.coreError("Failed to start webserver", e)
             }
 
             if (PreferencesHandler.isEnabled) {
