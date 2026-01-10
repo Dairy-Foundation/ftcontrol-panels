@@ -59,6 +59,16 @@ object Plugin : Plugin<ConfigurablesPluginConfig>(ConfigurablesPluginConfig()), 
         }
     }
 
+    fun refreshClass(cls: Class<*>) {
+        jvmFields.forEach { (loader, fields) ->
+            if(fields.removeIf { it.reference.declaringClass == cls }) {
+                scan(loader, cls)
+                send("configurables", allFieldsMap)
+                return
+            }
+        }
+    }
+
     override fun onRegister(
         panelsInstance: Panels, context: Context
     ) {
@@ -131,16 +141,16 @@ object Plugin : Plugin<ConfigurablesPluginConfig>(ConfigurablesPluginConfig()), 
     }
 
     override fun afterScan(loader: ClassLoader) {
-        if (loader is RootClassLoader) {
-            initialFieldsMap = allFieldsMap
-            send("initialConfigurables", initialFieldsMap)
-        }
+        initialFieldsMap = allFieldsMap
+        send("initialConfigurables", initialFieldsMap)
         send("configurables", allFieldsMap)
     }
 
     override fun beforeUnload(loader: ClassLoader) {
         jvmFields.remove(loader)
         loadedFieldsMap.remove(loader)?.forEach(fieldsMap::remove)
+        initialFieldsMap = allFieldsMap
+        send("initialConfigurables", initialFieldsMap)
         send("configurables", allFieldsMap)
     }
 
