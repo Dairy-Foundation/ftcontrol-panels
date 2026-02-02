@@ -2,13 +2,14 @@ val pluginNamespace = "com.bylazar.lights"
 val pluginVersion = "1.0.3"
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("dev.frozenmilk.android-library") version "11.1.0-1.1.1"
     id("com.bylazar.svelte-assets")
     id("dev.frozenmilk.publish") version "0.0.5"
     id("dev.frozenmilk.doc") version "0.0.5"
     id("dev.frozenmilk.build-meta-data") version "0.0.2"
 }
+
+android.namespace = pluginNamespace
 
 svelteAssets {
     assetsPath = assetPathForPlugin(pluginNamespace)
@@ -30,44 +31,16 @@ meta {
     registerField("version", "String") { "\"$version\"" }
 }
 
-android {
-    namespace = pluginNamespace
-
-    defaultConfig {
-        compileSdk = 34
-        minSdk = 24
-    }
-
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-
-    publishing {
-        singleVariant("release") {}
+ftc {
+    kotlin()
+    sdk {
+        compileOnly(RobotCore)
+        compileOnly(FtcCommon)
+        compileOnly(RobotServer)
     }
 }
 
 dependencies {
-    compileOnly("org.firstinspires.ftc:Inspection:11.0.0")
-    compileOnly("org.firstinspires.ftc:Blocks:11.0.0")
-    compileOnly("org.firstinspires.ftc:RobotCore:11.0.0")
-    compileOnly("org.firstinspires.ftc:RobotServer:11.0.0")
-    compileOnly("org.firstinspires.ftc:OnBotJava:11.0.0")
-    compileOnly("org.firstinspires.ftc:Hardware:11.0.0")
-    compileOnly("org.firstinspires.ftc:FtcCommon:11.0.0")
-    compileOnly("org.firstinspires.ftc:Vision:11.0.0")
-
     compileOnly(project(":Panels"))
 }
 

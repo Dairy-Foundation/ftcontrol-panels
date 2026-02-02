@@ -2,11 +2,12 @@ pluginManagement {
     includeBuild("plugin-svelte-assets")
     repositories {
         gradlePluginPortal()
+        google()
+        mavenCentral()
         maven("https://repo.dairy.foundation/releases")
     }
 }
 
-include(":FtcRobotController")
 include(":TeamCode")
 include(":OpModeControl")
 include(":ExamplePlugin")

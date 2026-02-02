@@ -2,13 +2,14 @@ val pluginNamespace = "com.bylazar.graph"
 val pluginVersion = "1.0.4"
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("dev.frozenmilk.android-library") version "11.1.0-1.1.1"
     id("com.bylazar.svelte-assets")
     id("dev.frozenmilk.publish") version "0.0.5"
     id("dev.frozenmilk.doc") version "0.0.5"
     id("dev.frozenmilk.build-meta-data") version "0.0.2"
 }
+
+android.namespace = pluginNamespace
 
 svelteAssets {
     assetsPath = assetPathForPlugin(pluginNamespace)
@@ -30,31 +31,12 @@ meta {
     registerField("version", "String") { "\"$version\"" }
 }
 
-android {
-    namespace = pluginNamespace
-
-    defaultConfig {
-        compileSdk = 34
-        minSdk = 24
-    }
-
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-
-    publishing {
-        singleVariant("release") {}
+ftc {
+    kotlin()
+    sdk {
+        compileOnly(RobotCore)
+        compileOnly(FtcCommon)
+        compileOnly(RobotServer)
     }
 }
 

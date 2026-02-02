@@ -2,13 +2,14 @@ val pluginNamespace = "com.bylazar.panels"
 val pluginVersion = "1.0.5"
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("dev.frozenmilk.android-library") version "11.1.0-1.1.1"
     id("com.bylazar.svelte-assets")
     id("dev.frozenmilk.publish") version "0.0.5"
     id("dev.frozenmilk.doc") version "0.0.5"
     id("dev.frozenmilk.build-meta-data") version "0.0.2"
 }
+
+android.namespace = pluginNamespace
 
 svelteAssets {
     assetsPath = "web"
@@ -31,63 +32,28 @@ meta {
     registerField("version", "String") { "\"$version\"" }
 }
 
-android {
-    namespace = "com.bylazar.panels"
-
-    defaultConfig {
-        compileSdk = 34
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-
-    publishing {
-        singleVariant("release") {}
+ftc {
+    kotlin()
+    sdk {
+        compileOnly(RobotCore)
+        compileOnly(FtcCommon)
+        compileOnly(RobotServer)
+        implementation(appcompat)
     }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.3.0")
-    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.core:core-ktx:1.2.0")
 
     testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-
-    compileOnly("org.firstinspires.ftc:Inspection:11.0.0")
-    compileOnly("org.firstinspires.ftc:Blocks:11.0.0")
-    compileOnly("org.firstinspires.ftc:RobotCore:11.0.0")
-    compileOnly("org.firstinspires.ftc:RobotServer:11.0.0")
-    compileOnly("org.firstinspires.ftc:OnBotJava:11.0.0")
-    compileOnly("org.firstinspires.ftc:Hardware:11.0.0")
-    compileOnly("org.firstinspires.ftc:FtcCommon:11.0.0")
-    compileOnly("org.firstinspires.ftc:Vision:11.0.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    //androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
     implementation("org.nanohttpd:nanohttpd-websocket:2.3.1") {
         exclude(module = "nanohttpd")
     }
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.23")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.3.0")
 
     implementation("org.tukaani:xz:1.9")
 }
