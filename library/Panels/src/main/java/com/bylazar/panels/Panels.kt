@@ -23,8 +23,8 @@ import org.firstinspires.ftc.robotcore.internal.system.AppUtil
 
 
 object Panels : Notifications {
-    lateinit var server: StaticServer
-    lateinit var socket: Socket
+    var server: StaticServer? = null
+    var socket: Socket? = null
     var config = PanelsConfig()
 
     var wasStarted = false
@@ -37,7 +37,7 @@ object Panels : Notifications {
     }
 
     val clientsCount: Int
-        get() = socket.clients.size
+        get() = socket?.clients?.size ?: 0
 
     internal fun initPanels(context: Context, eventLoop: FtcEventLoop) {
         TaskTimer.measure("full init") {
@@ -81,15 +81,15 @@ object Panels : Notifications {
             }
 
             if (PreferencesHandler.isEnabled) {
-                server.startServer()
-                socket.startServer()
+                server?.startServer()
+                socket?.startServer()
             }
 
             TextHandler.injectText()
 
             PluginsManager.init(context)
 
-            server.prepareData()
+            server?.prepareData()
 
             PluginsManager.plugins.values.forEach { it.onAttachEventLoop(eventLoop) }
             PluginsManager.plugins.values.forEach { it.onOpModeManager(eventLoop.opModeManager) }
@@ -136,8 +136,8 @@ object Panels : Notifications {
         }
 
         TextHandler.removeText()
-        server.stopServer()
-        socket.stopServer()
+        server?.stopServer()
+        socket?.stopServer()
     }
 
     override fun onOpModePreInit(opMode: OpMode) {
@@ -166,14 +166,14 @@ object Panels : Notifications {
     fun enable() {
         if (PreferencesHandler.isEnabled) return
         PreferencesHandler.isEnabled = true
-        server.startServer()
-        socket.startServer()
+        server?.startServer()
+        socket?.startServer()
     }
 
     fun disable() {
         if (!PreferencesHandler.isEnabled) return
         PreferencesHandler.isEnabled = false
-        server.stopServer()
-        socket.stopServer()
+        server?.stopServer()
+        socket?.stopServer()
     }
 }

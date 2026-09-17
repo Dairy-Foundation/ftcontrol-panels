@@ -50,7 +50,7 @@ abstract class Plugin<T : BasePluginConfig>(baseConfig: T) {
     fun send(type: String, data: Any) {
         val message = SocketMessage(id, type, data).toJson()
         log("Sending: $message")
-        Panels.socket.sendStrings(message)
+        Panels.socket?.sendStrings(message)
     }
 
     fun sendClient(client: Socket.ClientSocket, type: String, data: Any) {
