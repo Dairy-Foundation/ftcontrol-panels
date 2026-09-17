@@ -2,11 +2,11 @@ val pluginNamespace = "com.bylazar.telemetry"
 val pluginVersion = "1.0.5"
 
 plugins {
-    id("dev.frozenmilk.android-library") version "11.1.0-1.1.1"
+    id("dev.frozenmilk.android-library") version "12.0.0-1.2.2"
     id("com.bylazar.svelte-assets")
-    id("dev.frozenmilk.publish") version "0.0.5"
-    id("dev.frozenmilk.doc") version "0.0.5"
-    id("dev.frozenmilk.build-meta-data") version "0.0.2"
+    id("dev.frozenmilk.publish") version "0.1.0"
+    id("dev.frozenmilk.doc") version "0.1.0"
+    id("dev.frozenmilk.build-meta-data") version "0.1.0"
 }
 
 android.namespace = pluginNamespace

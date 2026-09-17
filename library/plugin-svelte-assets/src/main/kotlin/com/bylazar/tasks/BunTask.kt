@@ -3,11 +3,16 @@ package com.bylazar.tasks
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Internal
+import org.gradle.process.ExecOperations
 import org.gradle.process.ExecSpec
 import java.io.File
+import javax.inject.Inject
 
 @CacheableTask
-abstract class BunTask : DefaultTask() {
+abstract class BunTask @Inject constructor(
+    @get:Internal
+    val execOperations: ExecOperations,
+) : DefaultTask() {
     companion object {
         val isWindows = System.getProperty("os.name").lowercase().contains("windows")
     }
@@ -25,13 +30,14 @@ abstract class BunTask : DefaultTask() {
     val bunInstalled
         get() = System.getenv("BUN_INSTALL") != null || bunInstalledLocally
 
+
     /**
      * executes [cmd] under powershell or sh,
      * with the appropriate env vars set to use the locally installed bun
      * if necessary
      */
     fun bunExec(cmd: String, action: ExecSpec.() -> Unit = {}) {
-        project.exec {
+        execOperations.exec {
             commandLine = if (isWindows) listOf("powershell", "-c", cmd)
             else listOf("sh", "-c", cmd)
             if (bunInstalledLocally) {
