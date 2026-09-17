@@ -19,7 +19,9 @@ dairyPublishing {
     gitDir = file("..")
 }
 
-version = "${dairyPublishing.version}+$pluginVersion"
+afterEvaluate {
+    version = "${dairyPublishing.version}+$pluginVersion"
+}
 
 meta {
     packagePath = pluginNamespace
